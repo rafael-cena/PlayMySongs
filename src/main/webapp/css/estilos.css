@@ -37,3 +37,85 @@ nav {
         }
     }
 }
+
+.container {
+    width: 100dvw;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+
+    h1, h4 {
+        width: 100dvw;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        margin-top: 16px;
+    }
+
+    .sec-musicas {
+        width: 75dvw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+
+        .buscar-musicas {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin-top: 16px;
+
+            input {
+                width: 100%;
+                padding: 4px 8px;
+                border-radius: 8px 0 0 8px;
+            }
+
+            button {
+                width: min-content;
+                padding: 4px 16px;
+                border-radius: 0 8px 8px 0;
+                background-color: #328f28;
+                color: #ffffff;
+                cursor: pointer;
+            }
+
+            input, button {
+                border: none;
+                box-shadow: 0 0 4px #000a11;
+                font-size: max(1.2dvw, 16px);
+            }
+        }
+
+        .lista-musicas {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 16px auto;
+            gap: 16px;
+
+            ul {
+                width: 85%;
+
+                li {
+                    list-style: none;
+
+                    audio {
+                        width: 100%;
+                    }
+                    h5 {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
