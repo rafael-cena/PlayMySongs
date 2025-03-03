@@ -1,7 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%@ include file="acesso.jsp" %>
-
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -12,16 +9,11 @@
     <nav>
         <div class="nav-logo"><img src="./imagens/png-clipart-spotify-computer-icons-music-transparency-logo-spotify-logo-grass-removebg-preview.png"  alt="Imagem logo Play My Songs"/></div>
         <div class="nav-login">
-            <% if (usuario == null || !usuario.isAtivo()) { %>
-                    <form id="form-log" method="post" action="login-servlet">
-                        <input type="email" id="email" name="email" placeholder="email@email.com" />
-                        <input type="password" id="senha" name="senha" placeholder="senha" />
-                        <button onclick="Login()">Entrar</button>
-                    </form>
-            <% } else {%>
-                <%= usuario.getNome() %>
-                <button onclick="">Sair</button>
-            <%}%>
+            <form id="form-log" method="post" action="login-servlet">
+                <input type="email" id="email" name="email" placeholder="email@email.com" />
+                <input type="password" id="senha" name="senha" placeholder="senha" />
+                <button onclick="Login()">Entrar</button>
+            </form>
         </div>
     </nav>
     <article class="container">
