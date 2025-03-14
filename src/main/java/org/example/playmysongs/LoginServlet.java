@@ -18,9 +18,11 @@ public class LoginServlet extends HttpServlet {
                 // guardar as informações do usuário na sessão
                 HttpSession httpSession = request.getSession();
                 httpSession.setAttribute("usuario", user);
+                response.sendRedirect(".");
                 return;
             }
         }
+        response.sendRedirect(".");
         return;
     }
 }

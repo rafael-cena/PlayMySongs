@@ -44,6 +44,30 @@ nav {
             background-color: #337cbc;
             color: #ffffff;
         }
+        .nav-usuario {
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            justify-content: center;
+            gap: 16px;
+
+            p {
+                align-content: center;
+                justify-content: center;
+                color: #ffffff;
+            }
+
+            a {
+                align-content: center;
+                justify-content: center;
+                text-decoration: none;
+                border: 1px solid #ffffff;
+                padding: 0 8px;
+                border-radius: 8px;
+                background-color: red;
+                color: white;
+            }
+        }
     }
 }
 

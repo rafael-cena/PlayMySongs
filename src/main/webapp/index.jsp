@@ -1,4 +1,9 @@
+<%@ page import="org.example.playmysongs.util.Usuario" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
+    boolean ativo = (usuario != null);
+%>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -9,11 +14,15 @@
     <nav>
         <div class="nav-logo"><img src="./imagens/png-clipart-spotify-computer-icons-music-transparency-logo-spotify-logo-grass-removebg-preview.png"  alt="Imagem logo Play My Songs"/></div>
         <div class="nav-login">
+            <% if (ativo) { %>
+            <div class="nav-usuario"><p><%= usuario.getNome() %></p>  <a href="logoff-servlet">Sair</a></div>
+            <% } else { %>
             <form id="form-log" method="post" action="login-servlet">
                 <input type="email" id="email" name="email" placeholder="email@email.com" />
                 <input type="password" id="senha" name="senha" placeholder="senha" />
                 <button onclick="Login()">Entrar</button>
             </form>
+            <% } %>
         </div>
     </nav>
     <article class="container">
