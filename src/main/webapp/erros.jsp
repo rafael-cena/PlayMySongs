@@ -2,7 +2,9 @@
 <%@ page isErrorPage="true" %>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Erro</title>
+    <link rel="stylesheet" href="./css/estilos.css">
 </head>
 <body>
     <article class="container">
