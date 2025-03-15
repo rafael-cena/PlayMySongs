@@ -18,9 +18,22 @@ nav {
     .nav-logo {
         display: flex;
         align-content: center;
+        gap: 16px;
         img {
             width: 36px;
             height: 36px;
+        }
+        a {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+        }
+        a:hover {
+            cursor: pointer;
+            text-decoration: underline wavy 1px #337cbc;
         }
     }
 
@@ -76,7 +89,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: center;
+    justify-content: start;
 
     h1, h4 {
         width: 100dvw;
@@ -151,5 +164,105 @@ nav {
                 }
             }
         }
+    }
+}
+
+.msg {
+    position: fixed;
+    top: -100px; /* Mantém a notificação fora da tela inicialmente */
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.4s ease-in-out;
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 8px #000a11;
+    color: #ffffff;
+}
+
+/* Classes de tipo */
+.msg.ok {
+    background-color: #328f28;
+}
+
+.msg.error {
+    background-color: #e82424;
+}
+
+/* Animação de entrada e saída */
+@keyframes toast {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+    10%, 80% {
+        top: 20px;
+        opacity: 1;
+    }
+    100% {
+        top: -100px;
+        opacity: 0;
+    }
+}
+
+/* Quando a notificação está ativa */
+.msg.show {
+    animation: toast 3s ease-in-out;
+}
+
+.form-musicas {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    min-height: 400px;
+    margin: 120px auto 0 auto;
+    box-shadow: 0 0 8px #000a11;
+    border-radius: 8px;
+    gap: 16px;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        min-height: 250px;
+
+        h1 {
+            text-align: center;
+            padding-top: 8px;
+        }
+
+        label {
+            font-size: 2dvw;
+        }
+        span {
+            margin-top: -10px;
+            font-size: 1dvw;
+            text-align: center;
+            color: #e82424;
+        }
+        input {
+            text-align: center;
+            padding: 4px 8px;
+            border-radius: 8px;
+            border: 0 solid #ffffff;
+            cursor: pointer;
+            max-width: 500px;
+        }
+    }
+    button {
+        padding: 8px 24px;
+        background-color: #337cbc;
+        color: #ffffff;
+        border-radius: 8px;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 0 4px #000a11;
     }
 }
