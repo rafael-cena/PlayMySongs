@@ -18,12 +18,22 @@
 <%
     listMusicas = new ArrayList<>();
     pastaweb = new File(request.getServletContext().getRealPath("")+"/musicas");
-    if (pastaweb != null) {
-        for (File file : pastaweb.listFiles()) {
-            if (file.isFile())
-                listMusicas.add(file);
+    if (pastaweb.exists() && pastaweb.isDirectory()) {
+        File[] arquivos = pastaweb.listFiles();
+        if (arquivos != null) {
+            for (File file : arquivos) {
+                if (file.isFile()) {
+                    listMusicas.add(file);
+                }
+            }
+        } else {
+            out.println("Erro: `listFiles()` retornou null.");
         }
+    } else {
+        out.println("Erro: Diretório não encontrado ou não é um diretório válido.");
     }
+
+
 %>
 
 <html lang="pt-br">
@@ -59,7 +69,7 @@
             <button class="btn-busca">Pesquisar</button>
         </div>
 
-        <div class="lista-musicas">
+        <div class="lista-musicas" id="lista-musicas">
             <%
                 if (listMusicas != null && !listMusicas.isEmpty()) {
                     for(File file : listMusicas) {
@@ -81,5 +91,31 @@
         </div>
     </section>
 </article>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById("filter");
+            const searchButton = document.querySelector(".btn-busca");
+            const musicItems = document.querySelectorAll(".item-lista");
+
+            function searchMusic() {
+                const filter = searchInput.value.toLowerCase();
+
+                musicItems.forEach(item => {
+                    // Agora pega corretamente o nome da música dentro do <h5>
+                    const musicName = item.querySelector("h5").textContent.toLowerCase();
+
+                    if (musicName.includes(filter)) {
+                        item.style.display = "";
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+            }
+            searchButton.addEventListener("click", searchMusic);
+        });
+    </script>
+
 </body>
 </html>
+
